@@ -38,13 +38,13 @@ job = GlueJob('my_dir/', bucket=bucket, job_role=my_role,
 ### 2. Clone this repo
 
 ````
-git clone git@github.com:moj-analytical-services/docker_spark_history_ui.git
+git clone git@github.com:imadeit/docker_spark_history_ui.git
 cd docker_spark_history_ui
 ````
 
 ### 3. Build dockerfile from this repo
 
-`docker build -t sparkhistoryserver .`
+`docker build -t sparkui .`
 
 ### 4. Copy the events from the job to a local events folder
 
@@ -57,7 +57,7 @@ aws s3 sync s3://my-bucket/path-where-i-want-logs-to-go events
 
 
 ```
-docker run -v ${PWD}/events:/tmp/spark-events -p 18080:18080 sparkhistoryserver
+docker run -v ${PWD}/events:/tmp/spark-events -p 18080:18080 sparkui
 ```
 and go to http://127.0.0.1:18080 in your web browser
 
